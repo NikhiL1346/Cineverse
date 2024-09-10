@@ -145,13 +145,13 @@ const DetailsPage = () => {
           <div>
              <HorizontalScrollCard 
     data={similarData} 
-    heading={capitalizeFirstLetter("Similar " + params?.explore + "Shows")} 
+    heading={capitalizeFirstLetter("Similar " + capitalizeWords(params?.explore) + " Shows")} 
     media_type={params?.explore} 
 />
 
 <HorizontalScrollCard 
     data={recommendationData} 
-    heading={capitalizeFirstLetter("Recommended " + params?.explore + "Shows")} 
+    heading={capitalizeFirstLetter("Recommended " + capitalizeWords(params?.explore) + " Shows")} 
     media_type={params?.explore} 
 />
           </div>

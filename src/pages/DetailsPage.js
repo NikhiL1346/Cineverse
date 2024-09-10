@@ -33,6 +33,11 @@ const DetailsPage = () => {
 
   }
 
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+
 
   
   return (
@@ -138,8 +143,17 @@ const DetailsPage = () => {
           </div>
 
           <div>
-              <HorizontalScrollCard data={similarData} heading={"Similar "+params?.explore+"s"} media_type={params?.explore}/>
-              <HorizontalScrollCard data={recommendationData} heading={"Recommended "+params?.explore+"s"} media_type={params?.explore}/>
+             <HorizontalScrollCard 
+    data={similarData} 
+    heading={capitalizeFirstLetter("Similar " + params?.explore + "Shows")} 
+    media_type={params?.explore} 
+/>
+
+<HorizontalScrollCard 
+    data={recommendationData} 
+    heading={capitalizeFirstLetter("Recommended " + params?.explore + "Shows")} 
+    media_type={params?.explore} 
+/>
           </div>
           {
             playVideo && (

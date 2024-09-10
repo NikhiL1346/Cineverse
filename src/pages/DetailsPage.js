@@ -33,8 +33,9 @@ const DetailsPage = () => {
 
   }
 
-  const capitalizeFirstLetter = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+  const capitalizeWords = (str) => {
+    if (!str) return ''; // Handle the case when str is undefined or null
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 };
 
 
@@ -143,15 +144,15 @@ const DetailsPage = () => {
           </div>
 
           <div>
-             <HorizontalScrollCard 
+<HorizontalScrollCard 
     data={similarData} 
-    heading={capitalizeFirstLetter("Similar " + capitalizeWords(params?.explore) + " Shows")} 
+    heading={"Similar " + capitalizeWords(params?.explore) + "s"} 
     media_type={params?.explore} 
 />
 
 <HorizontalScrollCard 
     data={recommendationData} 
-    heading={capitalizeFirstLetter("Recommended " + capitalizeWords(params?.explore) + " Shows")} 
+    heading={"Recommended " + capitalizeWords(params?.explore) + "s"} 
     media_type={params?.explore} 
 />
           </div>

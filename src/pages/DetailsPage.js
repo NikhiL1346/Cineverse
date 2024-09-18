@@ -33,6 +33,12 @@ const DetailsPage = () => {
 
   }
 
+  const capitalizeWords = (str) => {
+    if (!str) return ''; // Handle the case when str is undefined or null
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+};
+
+
 
   
   return (
@@ -138,8 +144,17 @@ const DetailsPage = () => {
           </div>
 
           <div>
-              <HorizontalScrollCard data={similarData} heading={"Similar "+params?.explore+"s"} media_type={params?.explore}/>
-              <HorizontalScrollCard data={recommendationData} heading={"Recommended "+params?.explore+"s"} media_type={params?.explore}/>
+<HorizontalScrollCard 
+    data={similarData} 
+    heading={"Similar " + capitalizeWords(params?.explore) + " Shows"} 
+    media_type={params?.explore} 
+/>
+
+<HorizontalScrollCard 
+    data={recommendationData} 
+    heading={"Recommended " + capitalizeWords(params?.explore) + " Shows"} 
+    media_type={params?.explore} 
+/>
           </div>
           {
             playVideo && (
